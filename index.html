@@ -32,16 +32,35 @@
             
             if(play == comp){
                 alert("It's a tie!")
+                return;
             } else if (play==='rock' && comp === 'scissors' || play === 'paper' && comp==='rock' || play==='scissors' && comp==='paper'){
                 alert("You win!")
+                return 1;
             } else {
                 alert("You lose!")
+                return -1;
             }
             
             
         }
 
-        play ();
+        function play5(num){
+            let score = 0
+            for (i = 0; i < num; i++){
+                let result = play();
+                score += result;
+            }
+            if (score > 0){
+                alert("You win! F/A: " + score)
+            } else if (score < 0) {
+                alert("You lose! F/A: " + score)
+            } else {
+                alert("It's a tie!")
+            }
+        }
+
+
+        play5 (parseInt(prompt('Best of how many?')));
         // getComputerChoice();
     </script>
 </body>

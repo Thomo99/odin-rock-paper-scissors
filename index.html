@@ -12,10 +12,31 @@
         function getComputerChoice (){
             const choices = ['Rock', 'Paper', 'Scissors'];
             const randomChoice = Math.floor(Math.random() * choices.length);
-            console.log(choices[randomChoice]);
+            return choices[randomChoice].toLowerCase();
         }
 
-        getComputerChoice();
+        function playerChoice() {
+            let player = prompt('Rock, Paper or Scissors?')
+            player = player.toLowerCase();
+            return player;
+        }
+
+        function computerChoice() {
+            let comp = getComputerChoice();
+            return comp;
+        }
+
+        function play () {
+            let play = playerChoice();
+            let comp = computerChoice();
+            
+
+            console.log(play);
+            console.log(comp);
+        }
+
+        play ();
+        // getComputerChoice();
     </script>
 </body>
 </html>

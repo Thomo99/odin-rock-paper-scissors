@@ -30,9 +30,15 @@
             let play = playerChoice();
             let comp = computerChoice();
             
-
-            console.log(play);
-            console.log(comp);
+            if(play == comp){
+                alert("It's a tie!")
+            } else if (play==='rock' && comp === 'scissors' || play === 'paper' && comp==='rock' || play==='scissors' && comp==='paper'){
+                alert("You win!")
+            } else {
+                alert("You lose!")
+            }
+            
+            
         }
 
         play ();

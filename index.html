@@ -8,6 +8,13 @@
     <script src="script.js"></script>
 </head>
 <body>
+
+    <button class="btn rock"></button>
+    <button class="btn paper"></button>
+    <button class="btn scissors"></button>
+
+
+
     <script>
         function getComputerChoice (){
             const choices = ['Rock', 'Paper', 'Scissors'];
@@ -40,28 +47,35 @@
                 alert("You lose!")
                 return -1;
             }
-            
-            
+             
         }
 
-        function play5(num){
-            let score = 0
-            for (i = 0; i < num; i++){
-                let result = play();
-                score += result;
-            }
-            if (score > 0){
-                alert("You win! F/A: " + score)
-            } else if (score < 0) {
-                alert("You lose! F/A: " + score)
-            } else {
-                alert("It's a tie!")
-            }
-        }
+        const rock = document.getElementById("rock");
+        rock.addEventListener('click', play('rock'));
 
 
-        play5 (parseInt(prompt('Best of how many?')));
-        // getComputerChoice();
+        //Plays multiple rounds
+
+
+
+        // function play5(num){
+        //     let score = 0
+        //     for (i = 0; i < num; i++){
+        //         let result = play();
+        //         score += result;
+        //     }
+        //     if (score > 0){
+        //         alert("You win! F/A: " + score)
+        //     } else if (score < 0) {
+        //         alert("You lose! F/A: " + score)
+        //     } else {
+        //         alert("It's a tie!")
+        //     }
+        // }
+
+
+        // play5 (parseInt(prompt('Best of how many?')));
+        // // getComputerChoice();
     </script>
 </body>
 </html>

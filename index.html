@@ -38,19 +38,18 @@
         function play (choice) {
             const play = choice;
             const comp = computerChoice();
-            const resultdiv = document.createElement('p');
+             const resultdiv = document.querySelector('p');
+            
             
             if(play == comp){
                 resultdiv.textContent = "It's a tie!";
-                document.getElementById('results').appendChild(resultdiv);
+                
                 return;
             } else if (play==='rock' && comp === 'scissors' || play === 'paper' && comp==='rock' || play==='scissors' && comp==='paper'){
                 resultdiv.textContent = "You win!";
-                document.getElementById('results').appendChild(resultdiv);
                 return 1;
             } else {
                 resultdiv.textContent = "You lose!";
-                document.getElementById('results').appendChild(resultdiv);
                 return -1;
             }
              
@@ -77,10 +76,11 @@
             content.classList.add('content');
             content.textContent = 'Make your choice:';
             results.appendChild(content);
+            const resultdiv = document.createElement('p');
+            document.getElementById('results').appendChild(resultdiv);
         });
 
-        //Plays multiple rounds
-
+        
 
 
         // function play5(num){
@@ -98,15 +98,7 @@
         //     }
         // }
 
-
-        // play5 (parseInt(prompt('Best of how many?')));
-        // // getComputerChoice();
-
-        // function playerChoice() {
-        //     let player = prompt('Rock, Paper or Scissors?')
-        //     player = player.toLowerCase();
-        //     return player;
-        // }
+       
 
     </script>
 </body>

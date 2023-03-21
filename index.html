@@ -9,14 +9,17 @@
 </head>
 <body>
 
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
 
     <div id="results">
         
 
     </div>
+
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+    
 
 
     <script>
@@ -33,17 +36,21 @@
         }
 
         function play (choice) {
-            let play = choice;
-            let comp = computerChoice();
+            const play = choice;
+            const comp = computerChoice();
+            const resultdiv = document.createElement('p');
             
             if(play == comp){
-                alert("It's a tie!")
+                resultdiv.textContent = "It's a tie!";
+                document.getElementById('results').appendChild(resultdiv);
                 return;
             } else if (play==='rock' && comp === 'scissors' || play === 'paper' && comp==='rock' || play==='scissors' && comp==='paper'){
-                alert("You win!")
+                resultdiv.textContent = "You win!";
+                document.getElementById('results').appendChild(resultdiv);
                 return 1;
             } else {
-                alert("You lose!")
+                resultdiv.textContent = "You lose!";
+                document.getElementById('results').appendChild(resultdiv);
                 return -1;
             }
              
@@ -68,7 +75,7 @@
             const content = document.createElement('div');
 
             content.classList.add('content');
-            content.textContent = 'This is a test';
+            content.textContent = 'Make your choice:';
             results.appendChild(content);
         });
 

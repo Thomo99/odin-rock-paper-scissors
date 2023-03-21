@@ -9,10 +9,14 @@
 </head>
 <body>
 
-    <button class="btn rock"></button>
-    <button class="btn paper"></button>
-    <button class="btn scissors"></button>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
+    <div id="results">
+        
+
+    </div>
 
 
     <script>
@@ -22,19 +26,14 @@
             return choices[randomChoice].toLowerCase();
         }
 
-        function playerChoice() {
-            let player = prompt('Rock, Paper or Scissors?')
-            player = player.toLowerCase();
-            return player;
-        }
-
+        
         function computerChoice() {
             let comp = getComputerChoice();
             return comp;
         }
 
-        function play () {
-            let play = playerChoice();
+        function play (choice) {
+            let play = choice;
             let comp = computerChoice();
             
             if(play == comp){
@@ -51,8 +50,27 @@
         }
 
         const rock = document.getElementById("rock");
-        rock.addEventListener('click', play('rock'));
+        rock.addEventListener("click", function() {
+            play('rock')
+        });
+        const paper = document.getElementById("paper");
+        paper.addEventListener("click", function() {
+            play('paper')
+        });
+        const scissors = document.getElementById("scissors");
+        scissors.addEventListener("click", function() {
+            play('scissors')
+        });
+        
 
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+
+            content.classList.add('content');
+            content.textContent = 'This is a test';
+            results.appendChild(content);
+        });
 
         //Plays multiple rounds
 
@@ -76,6 +94,13 @@
 
         // play5 (parseInt(prompt('Best of how many?')));
         // // getComputerChoice();
+
+        // function playerChoice() {
+        //     let player = prompt('Rock, Paper or Scissors?')
+        //     player = player.toLowerCase();
+        //     return player;
+        // }
+
     </script>
 </body>
 </html>

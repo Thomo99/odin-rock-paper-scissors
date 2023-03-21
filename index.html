@@ -19,6 +19,10 @@
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
 
+    <div id="score">
+
+    </div>
+
     
 
 
@@ -38,13 +42,13 @@
         function play (choice) {
             const play = choice;
             const comp = computerChoice();
-             const resultdiv = document.querySelector('p');
+            const resultdiv = document.querySelector('p');
             
             
             if(play == comp){
                 resultdiv.textContent = "It's a tie!";
                 
-                return;
+                return 0;
             } else if (play==='rock' && comp === 'scissors' || play === 'paper' && comp==='rock' || play==='scissors' && comp==='paper'){
                 resultdiv.textContent = "You win!";
                 return 1;
@@ -54,52 +58,70 @@
             }
              
         }
-
+        let score = 0;
         const rock = document.getElementById("rock");
         rock.addEventListener("click", function() {
-            play('rock')
+            score += play('rock');
+            scorediv.textContent = score;
+            if (score == 5){
+                alert("You win!")
+            } else if (score == -5) {
+                alert("You lose!")
+            }
         });
         const paper = document.getElementById("paper");
         paper.addEventListener("click", function() {
-            play('paper')
+            score += play('paper');
+            scorediv.textContent = score;
+            if (score == 5){
+                alert("You win!")
+            } else if (score == -5) {
+                alert("You lose!")
+            }
         });
         const scissors = document.getElementById("scissors");
         scissors.addEventListener("click", function() {
-            play('scissors')
+            score += play('scissors');
+            scorediv.textContent = score;
+            if (score == 5){
+                alert("You win!")
+            } else if (score == -5) {
+                alert("You lose!")
+            }
         });
+
+        
+        const scorediv = document.querySelector('#score')
+        
         
 
         document.addEventListener('DOMContentLoaded', function() {
+            //title $$ result
             const results = document.querySelector('#results');
             const content = document.createElement('div');
 
             content.classList.add('content');
             content.textContent = 'Make your choice:';
             results.appendChild(content);
+
             const resultdiv = document.createElement('p');
             document.getElementById('results').appendChild(resultdiv);
+
+            //scores
+            const score = document.querySelector('#score');
+            const displayScore = document.createElement('div');
+
+            displayScore.classList.add('displayScore');
+            displayScore.textContent = 'Score:';
+            score.appendChild(displayScore);
+
+            
         });
 
-        
-
-
-        // function play5(num){
-        //     let score = 0
-        //     for (i = 0; i < num; i++){
-        //         let result = play();
-        //         score += result;
-        //     }
-        //     if (score > 0){
-        //         alert("You win! F/A: " + score)
-        //     } else if (score < 0) {
-        //         alert("You lose! F/A: " + score)
-        //     } else {
-        //         alert("It's a tie!")
-        //     }
-        // }
 
        
 
     </script>
+    <p id="score"></p>
 </body>
 </html>
